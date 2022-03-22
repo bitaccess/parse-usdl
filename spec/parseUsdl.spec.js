@@ -1,6 +1,7 @@
 const UsdlData1 = require('./sample/index').UsdlData1
 const UsdlData2 = require('./sample/index').UsdlData2
 const UsdlData3 = require('./sample/index').UsdlData3
+const UsdlData4 = require('./sample/index').UsdlData4
 const UsdlData_error = require('./sample/index').UsdlData_error
 const UsdlData_invalid_characters = require('./sample/index').UsdlData_invalid_characters
 const UsdlData_invalid_characters_2 = require('./sample/index').UsdlData_invalid_characters_2
@@ -20,7 +21,7 @@ describe('USDL Parser', () => {
   })
 
   it('should correctly identify DL', () => {
-    const parsedData = parse(UsdlData3, {suppressErrors: true})
+    const parsedData = parse(UsdlData3, { suppressErrors: true })
     expect(parsedData.documentNumber).toBe('099964088')
   })
 
@@ -53,5 +54,10 @@ describe('USDL Parser', () => {
     const parsedData = parse(UsdlData_invalid_characters_2)
 
     expect(parsedData).toEqual(default_fixture)
+  })
+
+  it('should correctly identify the first and middle name', () => {
+    const parsedData = parse(UsdlData4)
+    expect(parsedData.firstName).toEqual('JOHN MIDDLE')
   })
 })
