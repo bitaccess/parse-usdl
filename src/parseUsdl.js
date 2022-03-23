@@ -31,8 +31,11 @@ exports.parse = function parseCode128(str, options = defaultOptions) {
     let key = getKey(code)
 
     if (code == 'DCT') {
-      key = 'firstName'
-      value = value.split(' ')[0]
+      var names = value.split(' ')
+      props['firstName'] = names[0]
+      props['middleName'] = names[1]
+
+      return
     }
 
     if (!key) {

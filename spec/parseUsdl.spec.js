@@ -59,5 +59,11 @@ describe('USDL Parser', () => {
   it('should correctly identify the first and middle name', () => {
     const parsedData = parse(UsdlData4, { suppressErrors: true })
     expect(parsedData.firstName).toEqual('JOHN')
+    expect(parsedData.middleName).toEqual('MIDDLE')
+  })
+
+  it('should correctly identify the last name', () => {
+    const parsedData = parse(UsdlData4, { suppressErrors: true })
+    expect(parsedData.lastName).toEqual('SMITH')
   })
 })
