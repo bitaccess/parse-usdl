@@ -30,6 +30,11 @@ exports.parse = function parseCode128(str, options = defaultOptions) {
     let value = getValue(line)
     let key = getKey(code)
 
+    if (code == 'DCT') {
+      key = 'firstName'
+      value = value.split(' ')[0]
+    }
+
     if (!key) {
       if (options.suppressErrors) {
         return

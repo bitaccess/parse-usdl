@@ -57,7 +57,7 @@ describe('USDL Parser', () => {
   })
 
   it('should correctly identify the first and middle name', () => {
-    const parsedData = parse(UsdlData4)
+    const parsedData = parse(UsdlData4, { suppressErrors: true })
     expect(parsedData.firstName).toEqual('JOHN')
   })
 })
